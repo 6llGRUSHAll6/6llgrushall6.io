@@ -1,0 +1,120 @@
+/* styles.css */
+
+
+/* styles.css */
+
+/* Базовые стили для всего документа */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('фона.jpg'); /* Путь к картинке */
+    background-size: cover; /* Картинка будет растягиваться на весь экран */
+    background-position: center center; /* Центрируем изображение */
+    background-attachment: fixed; /* Фон будет фиксирован на месте при прокрутке */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Остальные стили остаются прежними */
+
+/* Сброс стандартных стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Базовые стили для всего документа */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #808080;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Контейнер для основного контента */
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Стили для ссылок, чтобы они выглядели как кнопки */
+a {
+    display: inline-block;
+    text-decoration: none;
+    background-color:#4B0082;
+    color: #fff;
+    padding: 12px 24px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Эффект при наведении на ссылки */
+a:hover {
+    background-color: #ff00ff;
+    transform: translateY(-3px);
+}
+
+/* Стили для ссылок без текста, если необходимо (секретная ссылка) */
+a[href="sekret.html"] {
+    background-color: transparent;
+    border: 1px solid #00b7ff;
+    padding: 10px 20px;
+    color: #ff002b;
+}
+
+/* Анимация для ссылок, плавный переход цвета */
+a:focus, a:active {
+    background-color: #ff0000;
+}
+
+/* Подключение иконки favicon */
+link[rel="icon"] {
+    width: 32px;
+    height: 32px;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    a {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
