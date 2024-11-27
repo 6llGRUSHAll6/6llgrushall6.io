@@ -84,13 +84,6 @@ a:hover {
     transform: translateY(-3px);
 }
 
-/* Стили для ссылок без текста, если необходимо (секретная ссылка) */
-a[href="sekret.html"] {
-    background-color: transparent;
-    border: 1px solid #00b7ff;
-    padding: 10px 20px;
-    color: #ff002b;
-}
 
 /* Анимация для ссылок, плавный переход цвета */
 a:focus, a:active {
