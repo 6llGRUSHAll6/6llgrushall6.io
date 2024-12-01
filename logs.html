@@ -146,6 +146,36 @@
             transition: opacity 0.1s ease, visibility 0s 0s; /* Анимация для видимости */
         }
 
+        /* Стили для ссылки */
+a {
+    text-align: center;
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #fff; /* Белый цвет текста */
+    background-color: #4CAF50; /* Зеленый фон */
+    padding: 15px; /* Отступы внутри кнопки */
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px; /* Скругленные углы */
+    font-size: 1.2em; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    display: inline-block; /* Чтобы ссылка вела себя как блочный элемент */
+    transition: background-color 0.3s, transform 0.3s; /* Плавные переходы */
+    width: 95%;
+}
+
+/* Эффект при наведении */
+a:hover {
+    background-color: #45a049; /* Темнее зеленый при наведении */
+    transform: translateY(-3px); /* Легкий подъем кнопки */
+}
+
+/* Эффект при нажатии (active) */
+a:active {
+    background-color: #388e3c; /* Еще темнее при клике */
+    transform: translateY(1px); /* Легкое "вдавливание" кнопки */
+}
+
+
     </style>
 </head>
 <body>
@@ -167,11 +197,14 @@
     <p>1.2.2 - я добавил</p>
     <button id="showButton">Наведи курсор, чтобы показать текст</button>
     <p id="hiddenText">!!СКРИМАК!!</p>
-   
+    <p> </p>
+    <h1>01.12.2024 1:00(мск)</h1>
+   <p>1.2.3 Я убрал скример и рикролл. ещё добавил вкладку с скринами обновлений старых и новых версий сайта.</p>
         
         <!-- Кнопка для перехода на главную страницу -->
         <button class="back-button" onclick="goToHomePage()">На главную</button>
-    </div>
+        <a href="image.html" target="_blank">История обновлений(фотографии)</a>
+
 
     <!-- Подключаем внешний JavaScript файл -->
     <script src="script.js"></script>

@@ -2,3 +2,4 @@
 function goToHomePage() {
     window.location.href = 'index.html'; // Перенаправление на главную страницу (index.html)
 }
+
