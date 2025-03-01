@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История Обновлений!</title>
+    <style>
+        /* Общие стили для всей страницы */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9; /* Светлый фон */
+            color: #333; /* Темный текст */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start; /* Контент слева */
+            align-items: center; /* Центрирование по вертикали */
+            height: 100vh; /* Центрирование по высоте */
+        }
+
+        /* Контейнер для контента */
+        .container {
+            background-color: #fff; /* Белый фон контейнера */
+            border-radius: 8px; /* Скругленные углы */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            margin-left: 20px; /* Отступ слева */
+            text-align: left; /* Текст выравнивается по левому краю */
+            position: relative;
+            overflow: hidden; /* Скрывает части, которые выходят за пределы контейнера */
+        }
+
+        /* Затемнение с левого края */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20%; /* Ширина затемняющей области с левого края */
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)); /* Градиент от черного к прозрачному */
+            z-index: 1; /* Затемнение под контентом */
+        }
+
+        /* Затемнение с правого края */
+        .container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20%; /* Ширина затемняющей области с правого края */
+            height: 100%;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)); /* Градиент от черного к прозрачному */
+            z-index: 1; /* Затемнение под контентом */
+            animation: shimmer 3s ease-in-out infinite; /* Плавная анимация переливающегося эффекта */
+        }
+
+        /* Плавная анимация переливающегося затемнения */
+        @keyframes shimmer {
+            0% {
+                background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+            }
+            100% {
+                background: linear-gradient(to left, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+            }
+        }
+
+        /* Заголовок */
+        h1 {
+            color: #3498db; /* Синий цвет для заголовка */
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            z-index: 2; /* Заголовок поверх затемнения */
+        }
+
+        /* Описание обновлений */
+        p {
+            font-size: 1.1em;
+            color: #555; /* Более светлый цвет текста */
+            line-height: 1.6;
+            margin-bottom: 15px;
+            z-index: 2; /* Текст поверх затемнения */
+        }
+
+        /* Стили для даты */
+        h1 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #2c3e50; /* Темный цвет для даты */
+        }
+
+        /* Стили для текста */
+        p {
+            color: #7f8c8d; /* Серый цвет для текста */
+        }
+
+        /* Кнопка для перехода */
+        .back-button {
+            background-color: #3498db; /* Синий фон */
+            color: white; /* Белый текст */
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        /* Эффект при наведении */
+        .back-button:hover {
+            background-color: #2980b9;
+        }
+        /* Кнопка для перехода */
+.back-button {
+    background-color: #3498db; /* Синий фон */
+    color: white; /* Белый текст */
+    padding: 15px; /* Увеличиваем внутренние отступы */
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100%; /* Занимает всю доступную ширину */
+    box-sizing: border-box; /* Учитывает padding в расчете ширины */
+}
+
+/* Эффект при наведении */
+.back-button:hover {
+    background-color: #2980b9;
+}
+
+
+#hiddenText {
+            opacity: 0; /* Изначально скрыт (прозрачный) */
+            visibility: hidden; /* Скрыт, чтобы не занимал место на странице */
+            transition: opacity 0.3s ease, visibility 0s 0.5s; /* Плавная анимация для изменения прозрачности */
+        }
+
+        #showButton:hover + #hiddenText {
+            opacity: 1; /* Становится видимым */
+            visibility: visible; /* Делает элемент видимым */
+            transition: opacity 0.1s ease, visibility 0s 0s; /* Анимация для видимости */
+        }
+
+        /* Стили для ссылки */
+a {
+    text-align: center;
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #fff; /* Белый цвет текста */
+    background-color: #4CAF50; /* Зеленый фон */
+    padding: 15px; /* Отступы внутри кнопки */
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px; /* Скругленные углы */
+    font-size: 1.2em; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    display: inline-block; /* Чтобы ссылка вела себя как блочный элемент */
+    transition: background-color 0.3s, transform 0.3s; /* Плавные переходы */
+    width: 95%;
+}
+
+/* Эффект при наведении */
+a:hover {
+    background-color: #45a049; /* Темнее зеленый при наведении */
+    transform: translateY(-3px); /* Легкий подъем кнопки */
+}
+
+/* Эффект при нажатии (active) */
+a:active {
+    background-color: #388e3c; /* Еще темнее при клике */
+    transform: translateY(1px); /* Легкое "вдавливание" кнопки */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>25.11.2024, 20:43, 21:32(начало сайта)(мск)</h1>
+        <p>1.1 - добавление на сайт страницы историй обновлений. также я переписал стили css</p>
+        <p>1.1.1 - добавлена кнопка "На главную". Также добавлен JavaScript.</p>
+        <p>1.1.2 - я добавил иконку для сайта. Также я обновил названия страниц.</p>
+        <p></p>
+        <h1>25.11.2024, 15:45(мск)</h1>
+        <p>
+            1.2 - я добавил
+        </p> <button id="showButton">Наведи курсор, чтобы показать текст</button>
+        <p id="hiddenText">!!РИКРОЛ!! он находится по кнопке рядом со всеми основными кнопками на главной странице</p>
+        <p>
+
+        </p>
+        <h1>27.11.2024, 13:30, 15:10(мск)</h1>
+        <p>1.2.1 - я почти полностью переработал интерфейс (опять)</p>
+        <p>1.2.2 - я добавил</p>
+        <button id="showButton">Наведи курсор, чтобы показать текст</button>
+        <p id="hiddenText">!!СКРИМАК!!</p>
+        <p> </p>
+        <h1>01.12.2024 1:00(мск)</h1>
+        <p>1.2.3 Я убрал скример и рикролл. ещё добавил вкладку с скринами обновлений старых и новых версий сайта.</p>
+        <h1>!!ПРОЕКТ ЗАКРЫТ!!</h1>
+        <p> </p>
+        <h1>да-да-да, после закрытия проекта я решил сделать обнову (17:00) мск</h1>
+        <p> </p>
+        <p>на все переходы по страницам сайта я добавил js по этому после перехода на другие страницы не будут появлятся бесячие вкладки. Удалил вкладку с скринами старых и новых версий сайта</p>
+        <p> </p>
+        <h1>!!ПРОЕКТ ЗАКРЫТ!! x2</h1>
+    </div>
+        
+        <!-- Кнопка для перехода на главную страницу -->
+        <button class="back-button" onclick="goToHomePage()">На главную</button>
+
+
+    <!-- Подключаем внешний JavaScript файл -->
+    <script src="script.js"></script>
+</body>
+</html>
